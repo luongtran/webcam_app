@@ -1,0 +1,12 @@
+
+
+Started GET "/photos" for 127.0.0.1 at Fri Sep 16 00:26:18 +0200 2011
+  Processing by PhotosController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'photos'):
+  app/controllers/photos_controller.rb:15:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
