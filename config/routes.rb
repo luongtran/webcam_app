@@ -4,6 +4,8 @@ WebcamApp::Application.routes.draw do
     post 'upload', :on => :collection
   end
   
+  root :to => redirect("/photos")
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

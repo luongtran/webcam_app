@@ -10,3 +10,845 @@ ActiveRecord::StatementInvalid (Could not find table 'photos'):
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePhotos (20110218224234)
+  [1m[35m (0.6ms)[0m  CREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110218224234')[0m
+Migrating to AddAttachmentImageToPhoto (20110218232056)
+  [1m[35m (21.7ms)[0m  ALTER TABLE "photos" ADD "image_file_name" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "photos" ADD "image_content_type" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "photos" ADD "image_file_size" integer
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "photos" ADD "image_updated_at" datetime[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110218232056')
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("photos")[0m
+
+
+Started GET "/photos" for 127.0.0.1 at Fri Sep 16 00:27:42 +0200 2011
+  Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" [0m
+Rendered photos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 94ms (Views: 92.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at Fri Sep 16 00:27:42 +0200 2011
+Served asset /all.css - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at Fri Sep 16 00:27:42 +0200 2011
+Served asset /defaults.js - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js" for 127.0.0.1 at Fri Sep 16 00:27:42 +0200 2011
+Served asset /webcam.js - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/webcam.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:27:45 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at Fri Sep 16 00:27:45 +0200 2011
+Served asset /all.css - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js" for 127.0.0.1 at Fri Sep 16 00:27:45 +0200 2011
+Served asset /webcam.js - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/webcam.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at Fri Sep 16 00:27:45 +0200 2011
+Served asset /defaults.js - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js" for 127.0.0.1 at Fri Sep 16 00:27:45 +0200 2011
+Served asset /webcam.js - 404 Not Found (0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/webcam.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Sep 16 00:30:57 +0200 2011
+
+
+Started GET "/photos" for 127.0.0.1 at Fri Sep 16 00:30:57 +0200 2011
+  Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (0.2ms)[0m  [1mSELECT "photos".* FROM "photos" [0m
+Rendered photos/index.html.erb within layouts/application (3.8ms)
+Compiled webcam.js  (0ms)  (pid 55402)
+Completed 200 OK in 96ms (Views: 94.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at Fri Sep 16 00:30:58 +0200 2011
+Served asset /all.css - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at Fri Sep 16 00:30:58 +0200 2011
+Served asset /defaults.js - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:30:58 +0200 2011
+Served asset /webcam.js - 200 OK (2ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:31:00 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at Fri Sep 16 00:31:00 +0200 2011
+Served asset /defaults.js - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at Fri Sep 16 00:31:00 +0200 2011
+Served asset /all.css - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:31:00 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:32:26 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 94ms (Views: 92.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at Fri Sep 16 00:32:26 +0200 2011
+Served asset /all.css - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at Fri Sep 16 00:32:26 +0200 2011
+Served asset /defaults.js - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:32:26 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:32:35 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 103ms (Views: 102.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/all.css" for 127.0.0.1 at Fri Sep 16 00:32:36 +0200 2011
+Served asset /all.css - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/all.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/defaults.js" for 127.0.0.1 at Fri Sep 16 00:32:36 +0200 2011
+Served asset /defaults.js - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:32:36 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:33:08 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 48ms
+
+ActionView::Template::Error (couldn't find file 'jquery'
+  (in /Users/lassebunk/dev/web/webcam_app2/app/assets/javascripts/application.js:1)):
+    3: <head>
+    4:   <title>WebcamApp</title>
+    5:   <%= stylesheet_link_tag :application %>
+    6:   <%= javascript_include_tag :application %>
+    7:   <%= csrf_meta_tag %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__2139778340_2201042360'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.7ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:34:54 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (75.3ms)
+Compiled application.css  (1ms)  (pid 55493)
+Compiled application.js  (5ms)  (pid 55493)
+Compiled jquery.js  (292ms)  (pid 55493)
+Compiled jquery_ujs.js  (19ms)  (pid 55493)
+Completed 200 OK in 439ms (Views: 438.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:34:55 +0200 2011
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:34:55 +0200 2011
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:34:55 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:34:55 +0200 2011
+Served asset /webcam.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:34:55 +0200 2011
+Served asset /application.js - 200 OK (5ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:35:27 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 88ms (Views: 86.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:35:27 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:35:27 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:35:27 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:35:27 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:35:27 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:36:02 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:36:02 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:02 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:02 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:02 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:02 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:36:04 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:36:04 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:04 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:04 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:04 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:04 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:36:20 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:36:20 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:20 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:20 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:20 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:20 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:36:45 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:45 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:36:45 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:45 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:45 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:45 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:36:47 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 89ms (Views: 88.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:36:47 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:47 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:47 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:47 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:47 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:36:48 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:36:48 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:48 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:48 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:48 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:36:48 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:37:07 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:37:07 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:07 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:07 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:07 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:07 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:37:17 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant PhotosController::RAILS_ROOT):
+  app/controllers/photos_controller.rb:29:in `upload_path'
+  app/controllers/photos_controller.rb:19:in `upload'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:37:38 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:37:39 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:39 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:39 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:39 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:37:39 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:37:46 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant PhotosController::RAILS_ROOT):
+  app/controllers/photos_controller.rb:29:in `upload_path'
+  app/controllers/photos_controller.rb:19:in `upload'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.8ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:38:27 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:38:27 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:27 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:27 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:27 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:27 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:38:35 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant PhotosController::RAILS_ROOT):
+  app/controllers/photos_controller.rb:29:in `upload_path'
+  app/controllers/photos_controller.rb:19:in `upload'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:38:46 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 95ms (Views: 93.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:46 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:46 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:46 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:38:46 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:38:46 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:42:00 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:42:00 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:00 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:00 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:00 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:00 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:42:04 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant PhotosController::RAILS_ROOT):
+  app/controllers/photos_controller.rb:29:in `upload_path'
+  app/controllers/photos_controller.rb:19:in `upload'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.7ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:42:21 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:42:22 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:22 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:22 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:22 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:42:22 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:42:38 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant PhotosController::RAILS_ROOT):
+  app/controllers/photos_controller.rb:29:in `upload_path'
+  app/controllers/photos_controller.rb:19:in `upload'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:43:33 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:43:33 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:33 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:33 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:33 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:33 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:43:36 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Rendered text template (0.0ms)
+Completed 200 OK in 213ms (Views: 153.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:43:55 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:43:55 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:55 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:55 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:55 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:43:55 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:44:04 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:44:20 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:44:20 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:20 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:20 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:20 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:20 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:44:27 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/photos/new" for 127.0.0.1 at Fri Sep 16 00:44:49 +0200 2011
+  Processing by PhotosController#new as HTML
+Rendered photos/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:44:49 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:49 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:49 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:49 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:44:49 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/photos/upload" for 127.0.0.1 at Fri Sep 16 00:45:00 +0200 2011
+  Processing by PhotosController#upload as HTML
+WARNING: Can't verify CSRF token authenticity
+Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/photos" for 127.0.0.1 at Fri Sep 16 00:45:06 +0200 2011
+  Processing by PhotosController#create as HTML
+  Parameters: {"photo"=>{"description"=>"Test photo"}, "commit"=>"Save the photo", "authenticity_token"=>"3J8A4eE3KTKjXfuK7DQ1VhgzxnjgrhNEK+6jFmkrUbE=", "utf8"=>"\342\234\223"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36mSQL (150.3ms)[0m  [1mINSERT INTO "photos" ("created_at", "description", "image_content_type", "image_file_name", "image_file_size", "image_updated_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 15 Sep 2011 22:45:07 UTC +00:00], ["description", "Test photo"], ["image_content_type", "image/jpeg"], ["image_file_name", ".jpg"], ["image_file_size", 93587], ["image_updated_at", Thu, 15 Sep 2011 22:45:06 UTC +00:00], ["updated_at", Thu, 15 Sep 2011 22:45:07 UTC +00:00]]
+[paperclip] Saving attachments.
+[paperclip] saving /Users/lassebunk/dev/web/webcam_app2/public/system/images/1/thumb/.jpg
+[paperclip] saving /Users/lassebunk/dev/web/webcam_app2/public/system/images/1/original/.jpg
+[paperclip] saving /Users/lassebunk/dev/web/webcam_app2/public/system/images/1/medium/.jpg
+Redirected to http://localhost:3000/photos/1
+Completed 302 Found in 1879ms
+
+
+Started GET "/photos/1" for 127.0.0.1 at Fri Sep 16 00:45:08 +0200 2011
+  Processing by PhotosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPhoto Load (0.2ms)[0m  SELECT "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT 1  [["id", "1"]]
+Rendered photos/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 55ms (Views: 51.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at Fri Sep 16 00:45:08 +0200 2011
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at Fri Sep 16 00:45:08 +0200 2011
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at Fri Sep 16 00:45:08 +0200 2011
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/webcam.js?body=1" for 127.0.0.1 at Fri Sep 16 00:45:08 +0200 2011
+Served asset /webcam.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at Fri Sep 16 00:45:08 +0200 2011
+Served asset /application.js - 304 Not Modified (0ms)

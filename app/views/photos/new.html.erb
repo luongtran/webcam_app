@@ -1,9 +1,10 @@
 <div id="webcam"></div>
 <script type="text/javascript">
   function upload_complete(msg) {
+    alert("result");
     if (msg == 'ok') {
-      $('new_photo').show();
-      $('photo_description').focus();
+      $('#new_photo').show();
+      $('#photo_description').focus();
     } else {
       alert('An error occured');
       webcam.reset();
@@ -15,11 +16,11 @@
   webcam.set_quality(90);
   webcam.set_shutter_sound(true, '/shutter.mp3');
   webcam.set_hook('onComplete', 'upload_complete');
-  $('webcam').innerHTML = webcam.get_html(640, 480);
+  $('#webcam').html(webcam.get_html(640, 480));
 </script>
 <input type="button" value="Take picture" onclick="webcam.snap();" />
 
-<% form_for Photo.new, :html => { :style => "display: none;" } do |f| %>
+<%= form_for Photo.new, :html => { :style => "display: none;" } do |f| %>
   <p>
     <%= f.label :description %><br />
     <%= f.text_field :description %>
