@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
   end
 
   def upload
-    File.open(upload_path, 'w') do |f|
+    File.open(upload_path, 'wb') do |f|
       f.write request.raw_post
     end
     render :text => "ok"
